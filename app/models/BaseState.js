@@ -1,11 +1,14 @@
-let Product = require('./Product');
 const constants = require('../../helper/constants');
 
 class Base_State {
     state_id = null;
     state_name = null;
     valid_next_states = [];
-
+    /**
+     * 
+     * @param {*} nextStateID The new state of the product. 
+     * @param {*} callback returns with a flag of validation.
+     */
     isValidNextState(nextStateID,callback) {
         let validFlag = this.valid_next_states.includes(Number(nextStateID));
         callback(null,validFlag);

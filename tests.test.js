@@ -1,7 +1,16 @@
-const { constant } = require("async");
 const request = require("supertest");
 const app = require('./app');
 const aDB = require('./database');
+
+/**
+ * Main functionalities in our application run tests.
+ *    - Test server connection.
+ *    - Test DataBase connection.
+ *    - Should return all categories under this parent.
+ *    - Should return all categories.
+ *    - Should return all products with state_id.
+ *    - should return the updated product with specific state_id else return error
+ */
 
 test(`Test server connection`, () => {
   expect(app).not.toEqual(null);
@@ -14,7 +23,7 @@ test(`Test DataBase connection`, () => {
       });
 });
 
-test(`should return all categories under this parent`, () => {
+test(`Should return all categories under this parent`, () => {
   return request(app)
     .get(`/api/v1/categories?parent_id=${1}`)
     .expect(200)
@@ -25,7 +34,7 @@ test(`should return all categories under this parent`, () => {
     });
 });
 
-test(`should return all categories`, () => {
+test(`Should return all categories`, () => {
   return request(app)
     .get(`/api/v1/categories`)
     .expect(200)

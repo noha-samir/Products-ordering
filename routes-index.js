@@ -1,6 +1,8 @@
 var router = require('express').Router();
-//var constants = require("./constants");
-//var UserController = require('./app/controllers/user-controller');
+/**
+ * Handling  the APIs and rout them to each router.
+ * Checking on methods of request.
+ */
 
 //Allow CORS
 router.use(function (req, res, next) {

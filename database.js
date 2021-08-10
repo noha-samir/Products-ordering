@@ -1,7 +1,8 @@
 const mysql = require('mysql');
 var async = require('async');
 
-//queueLimit:10, limit pending connection queue
+//Create pool of database connections.
+//queueLimit:10, limit pending connection queue.
 const pool = mysql.createPool({
     connectionLimit: "100",
     queueLimit:10,
@@ -12,6 +13,12 @@ const pool = mysql.createPool({
     database: process.env.DATABASE_NAME
 });
 
+/**
+ * 
+ * @param {*} finalCallback That returns a connection to DB
+ * 
+ * Get a connection with a transaction.
+ */
 module.exports.connectionWithTransaction = function (finalCallback) {
     let aConnection = null;
 
@@ -22,8 +29,6 @@ module.exports.connectionWithTransaction = function (finalCallback) {
                     callback(err);
                 } else {
                     aConnection = connection;
-                    //let logString = global.req.method + " " + global.req.baseUrl + global.req.url + "  " + aConnection.threadId + "\n\n";
-                    //fs.appendFile('RequestThreads.txt', logString, function () { });
                     callback(null);
                 }
             });
@@ -51,7 +56,16 @@ module.exports.connectionWithTransaction = function (finalCallback) {
     })
 }
 
+/**
+ * 
+ * @param {*} err Error happens in the DB.
+ * @param {*} aConnection The DB connection itself.
+ * @param {*} callback Callback with response.
+ * 
+ * Release a connection with a transaction.
+ */
 module.exports.releaseConnectionWithTransaction = function (err, aConnection, callback) {
+    //Return DB error.
     if (!aConnection) {
         let error = new Error();
         error.code = "DATABASE_ERROR";
@@ -59,12 +73,14 @@ module.exports.releaseConnectionWithTransaction = function (err, aConnection, ca
         error.message = "Something went wrong..";
         callback(error);
     }
+    // Rollback if we have an error during DB methods.
     else if (err) {
         aConnection.rollback(function () {
             aConnection.release();
             callback(err);
-        })
+        });
     }
+    // Commit if everything is okay.
     else {
         aConnection.commit(function (err) {
             if (err) {
@@ -81,6 +97,12 @@ module.exports.releaseConnectionWithTransaction = function (err, aConnection, ca
     }
 }
 
+/**
+ * 
+ * @param {*} finalCallback Get a connection without transaction to GET methods only.
+ * 
+ */
+
 module.exports.connectionWithoutTransaction = function (finalCallback) {
     let aConnection = null;
 
@@ -91,8 +113,6 @@ module.exports.connectionWithoutTransaction = function (finalCallback) {
                     callback(err);
                 } else {
                     aConnection = connection;
-                    //let logString = global.req.method + " " + global.req.baseUrl + global.req.url + "  " + aConnection.threadId + "\n\n";
-                    //fs.appendFile('RequestThreads.txt', logString, function () { });
                     callback(null);
                 }
             });
@@ -113,6 +133,14 @@ module.exports.connectionWithoutTransaction = function (finalCallback) {
         finalCallback(err, aConnection);
     })
 }
+
+/**
+ * 
+ * @param {*} err Error happens in the DB.
+ * @param {*} aConnection The DB connection itself.
+ * @param {*} callback Callback with response.
+ * 
+ */
 
 module.exports.releaseConnectionWithoutTransaction = function (err, aConnection, callback) {
     if (!aConnection) {

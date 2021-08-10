@@ -1,5 +1,9 @@
 const Joi = require('joi');
 
+/**
+ * Validation over all products APIs.
+ */
+
 // schema options
 const options = {
     abortEarly: false, // include all errors

@@ -3,6 +3,7 @@ let dict = require("dict");
 let FactoryState = require('./FactoryState');
 
 class Product {
+
     product_id = null;
     product_name = null;
     product_price = null;
@@ -12,6 +13,13 @@ class Product {
     main_image = null;
     list_of_images = null;
 
+    /**
+     * 
+     * @param {Error} err Passed Error if we get an error during commenicating with the DB.
+     * @param {Array} results Array of returned records from database.
+     * @param {*} callback Array of products objects.
+     * 
+     */
     mapProduct(err,results,callback) {
         let arrOfProducts = [];
                 let listOfProducts = dict({});
@@ -77,6 +85,14 @@ class Product {
                 });
     }
     
+    /**
+     * 
+     * @param {*} gConnection The connection to database.
+     * @param {*} limit Number of elements of single page.
+     * @param {*} offset Number of the starting position to get data.
+     * @param {*} callback Callback with error or array of products.
+     */
+
     listProducts(gConnection, limit, offset, callback) {
         let self = this;
         let pagenation = '';
@@ -110,6 +126,14 @@ class Product {
         });
     }
 
+    /**
+     * 
+     * @param {*} gConnection The connection to database.
+     * @param {*} product_id Selected product ID.
+     * @param {*} nextStateId The new state of product.
+     * @param {*} finallCallback return updated product.
+     * Change state of product then return that product.
+     */
     transferState(gConnection, product_id, nextStateId, finallCallback) {
         let self = this;
         async.waterfall([
@@ -141,6 +165,12 @@ class Product {
         });
     }
 
+    /**
+     * 
+     * @param {*} gConnection The connection to database.
+     * @param {*} product_id Selected product ID.
+     * @param {*} callback Callback with error or the selected product
+     */
     getProduct(gConnection, product_id, callback) {
         let self = this;
         var preparedSqlQuery = `
@@ -170,6 +200,12 @@ class Product {
         });
     }
 
+    /**
+     * 
+     * @param {*} gConnection The connection to database.
+     * @param {*} nextStateId The new state of product.
+     * @param {*} finallCallback return updated product.
+     */
     updateProductState(gConnection, nextStateId, finallCallback) {
         let self = this;
         async.waterfall([

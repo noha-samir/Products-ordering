@@ -1,3 +1,6 @@
+/**
+ * States IDs in the DB.
+ */
 module.exports = Object.freeze({
     DraftStateID: 1,
     DeletedDraftStateID: 2,

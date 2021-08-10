@@ -1,6 +1,9 @@
 const constants = require('../../helper/constants');
 let States = require('./BaseState');
-
+/**
+ * Design pattern : Factory Design Pattern.
+ * Design pattern to select the target and build the required object.
+ */
 class State_Factory {
     createState(nextStateId,callback) {
         let returnedBaseState = null;

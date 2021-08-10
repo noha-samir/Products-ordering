@@ -1,5 +1,7 @@
 const Joi = require('joi');
-
+/**
+ * Validation over all categories APIs.
+ */
 // schema options
 const options = {
     abortEarly: false, // include all errors

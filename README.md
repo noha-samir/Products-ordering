@@ -12,6 +12,7 @@
 - [Dependencies](#Dependencies)
 - [Running the tests](#Tests)
 - [Built Using](#built_using)
+- [DataBase](#DataBase)
 
 ## Notes <a name = "Notes"></a>
 - The Class Structure Diagram will be attached to the app in Class Structure Diagram.drawio file.
@@ -82,3 +83,8 @@ Run endpoints using postman or any other tool
 
 - [Express](https://expressjs.com/) - Server Framework
 - [NodeJs](https://nodejs.org/en/) - Server Environment
+
+## DataBase <a name = "DataBase"></a>
+
+- We will be using MySQL DB.
+- [MySQL](https://www.mysql.com/) - DataBase

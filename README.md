@@ -14,6 +14,7 @@
 - [Built Using](#built_using)
 
 ## Notes <a name = "Notes"></a>
+- The Class Structure Diagram will be attached to the app in Class Structure Diagram.drawio file.
 - The swagger link for documented APIs >> https://app.swaggerhub.com/organizations/Product_Ordering
 - There is a sample-env file for the local data to be added in the .env file
 - My Application depending on 2 design patterns:

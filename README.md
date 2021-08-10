@@ -1,6 +1,5 @@
 # Products-ordering
 <h3 align="center">
-<b>Pet Store</b></h3>
 
 ## 📝 Table of Contents
 
@@ -9,30 +8,32 @@
 - [Design Patterns Used](#Design_Pattern)
 - [API Documentation](#API_Documentation)
 - [Getting Started](#getting_started)
+- [Deployment & Installing](#Deployment_Installing)
+- [Dependencies](#Dependencies)
+- [Running the tests](#Tests)
 - [Built Using](#built_using)
 
-
-## Notes
+## Notes <a name = "Notes"></a>
 - The swagger link for documented APIs >> https://app.swaggerhub.com/organizations/Product_Ordering
 - There is a sample-env file for the local data to be added in the .env file
 - My Application depending on 2 design patterns:
     - State Desingn Pattern >> which is a software design pattern that allows an object to alter its behavior when its internal state changes.
     - Factory Design Pattern >> which is a software design pattern we create object without exposing the creation logic to the client and refer to newly created object using a common interface.
 
-## Design Patterns Used
+## Design Patterns Used <a name = "Design_Pattern"></a>
 
   - [State Design Pattern](https://subscription.packtpub.com/book/web_development/9781783287314/4/ch04lvl1sec31/state) 
   - [Factory Design Pattern](https://www.dofactory.com/javascript/design-patterns/factory-method)   
 
-## API Documentation
+## API Documentation <a name = "API_Documentation"></a>
 
 https://www.dofactory.com/javascript/design-patterns/factory-method
 
-## Getting Started
+## Getting Started <a name = "getting_started"></a>
 
 node and npm must be installed on your machine
 
-## Deployment & Installing Env
+## Deployment & Installing Env <a name = "Deployment_Installing"></a>
 
 first deployment option
 
@@ -57,7 +58,7 @@ first deployment option
       >> Response in DEBUG CONSOLE should be >>  
                        > Your app is listening on PORT: {YOUR_PORT}
 
-### Dependencies
+### Dependencies <a name = "Dependencies"></a>
 
 - [async](https://www.npmjs.com/package/async)
 - [jest](https://www.npmjs.com/package/jest)
@@ -66,7 +67,7 @@ first deployment option
 - [express](https://expressjs.com/)
 - [request](https://www.npmjs.com/package/request)
 
-## 🔧 Running the tests <a name = "tests"></a>
+## 🔧 Running the tests <a name = "Tests"></a>
 
 Test if server & DataBase & main APIs are working by:
   - Run npm test on terminal

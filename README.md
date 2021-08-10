@@ -27,7 +27,7 @@
 
 ## API Documentation <a name = "API_Documentation"></a>
 
-https://www.dofactory.com/javascript/design-patterns/factory-method
+https://app.swaggerhub.com/organizations/Product_Ordering
 
 ## Getting Started <a name = "getting_started"></a>
 

@@ -6,16 +6,27 @@
 
 <!-- - [About](#about) -->
 - [Notes](#Notes)
+- [Design Patterns Used](#Design_Pattern)
+- [API Documentation](#API_Documentation)
 - [Getting Started](#getting_started)
 - [Built Using](#built_using)
 
+
 ## Notes
+- The swagger link for documented APIs >> https://app.swaggerhub.com/organizations/Product_Ordering
 - There is a sample-env file for the local data to be added in the .env file
 - My Application depending on 2 design patterns:
     - State Desingn Pattern >> which is a software design pattern that allows an object to alter its behavior when its internal state changes.
     - Factory Design Pattern >> which is a software design pattern we create object without exposing the creation logic to the client and refer to newly created object using a common interface.
 
+## Design Patterns Used
 
+  - [State Design Pattern](https://subscription.packtpub.com/book/web_development/9781783287314/4/ch04lvl1sec31/state) 
+  - [Factory Design Pattern](https://www.dofactory.com/javascript/design-patterns/factory-method)   
+
+## API Documentation
+
+https://www.dofactory.com/javascript/design-patterns/factory-method
 
 ## Getting Started
 
